@@ -1,0 +1,97 @@
+body {
+  background-color: #f6f6f6;
+}
+
+header {
+  text-align: center;
+}
+header hr {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#drillCard {
+  margin: 20px auto;
+  width: 500px;
+  max-width: 90%;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.drillCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  border: solid gray 3px;
+  border-radius: 15px;
+  background-color: lightgrey;
+}
+
+#drillCard.flip .drillCardInner {
+  transform: rotateY(180deg);
+}
+
+.drillCardFront,
+.drillCardBack {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.drillCardBack {
+  padding-top: 20px;
+  transform: rotateY(180deg);
+  font-size: 1.5rem;
+}
+
+.drillCardBack::before {
+  content: "✅";
+  display: block;
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+
+.wrong .drillCardBack::before {
+  content: "❌";
+}
+
+#questionText {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+#userInput {
+  width: 90%;
+  height: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border: solid gray 2px;
+  border-radius: 7px;
+}
+
+.cardBackOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
+.flip .cardBackOverlay {
+  display: none;
+}
